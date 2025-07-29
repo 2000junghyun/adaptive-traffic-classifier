@@ -7,6 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 INPUT_FILES = '../data/time-based-split/not-preprocessed/*.csv'
 OUTPUT_DIR = '../data/time-based-split/preprocessed'
+
 KEEP_COLS = [
     'Destination Port',
     'Flow Duration',
