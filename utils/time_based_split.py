@@ -1,8 +1,8 @@
 import pandas as pd
 import os
 
-INPUT_FILE = '../../shared-data/merged-data.csv'            # 상대 경로 (시간순 정렬된 데이터)
-OUTPUT_DIR = '../data/time-based-split/not-preprocessed'    # 현재 디렉토리 기준 출력 폴더
+INPUT_FILE = INPUT_FILE = '../data/preprocessed-merged-traffic.csv'
+OUTPUT_DIR = '../data/time-based-split'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # CSV 파일 로드
