@@ -3,7 +3,7 @@ import os
 
 # 입력 및 출력 경로 설정
 INPUT_FILE = '../../shared-data/merged-data.csv'
-OUTPUT_DIR = '../data/hybrid-split/'
+OUTPUT_DIR = '../data/hybrid-split/not-preprocessed'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 try:

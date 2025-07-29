@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
-INPUT_FILES = '../data/time-based-split/not-preprocessed/*.csv'
-OUTPUT_DIR = '../data/time-based-split/preprocessed'
+INPUT_FILES = '../data/random-split/not-preprocessed/*.csv'
+OUTPUT_DIR = '../data/random-split/preprocessed'
 
 KEEP_COLS = [
     'Destination Port',
@@ -90,6 +90,12 @@ def preprocess_file(input_path, output_dir):
         save_path = os.path.join(output_dir, filename)
         df.to_csv(save_path, index=False)
         print(f"[+] {filename} => {save_path}")
+        # 저장 성공 시 원본 삭제
+        try:
+            os.remove(input_path)
+            print(f"[-] Deleted original file: {input_path}")
+        except Exception as del_err:
+            print(f"[!] Fail to delete {input_path}: {del_err}")
     except Exception as e:
         print(f"[!] Fail to save {filename}: {e}")
 
