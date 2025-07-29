@@ -4,7 +4,7 @@ from sklearn.utils import shuffle
 
 # 입력 및 출력 경로
 INPUT_FILE = '../../shared-data/merged-data.csv'
-OUTPUT_DIR = '../data/random-split/'
+OUTPUT_DIR = '../data/random-split/not-preprocessed'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # CSV 파일 로드 및 셔플
