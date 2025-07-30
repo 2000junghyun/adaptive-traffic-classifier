@@ -20,6 +20,6 @@ shared-data/
 data/
 **/data/
 
-# Ignore files
+# Ignore directory & files
 ignore/
 test.*
