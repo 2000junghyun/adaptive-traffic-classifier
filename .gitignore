@@ -23,3 +23,4 @@ data/
 # Ignore files
 ignore/
 test.*
+.DS_Store
