@@ -138,4 +138,3 @@ python utils/time_based_split.py
 - **Realistic Security Environment Simulation**: Mimics actual network log collection workflows
 - **Efficient Threat Detection Research**: Compares how different splitting strategies impact model accuracy
 - **Operational Readiness Validation**: Prepares the foundation for integrating with real-time detection systems
->>>>>>> c90c0ca (Update README file)
