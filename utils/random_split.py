@@ -1,11 +1,18 @@
-import pandas as pd
 import os
+from pathlib import Path
+
+import pandas as pd
 from sklearn.utils import shuffle
 
-# 입력 및 출력 경로
-INPUT_FILE = '../data/preprocessed-merged-traffic.csv'
-OUTPUT_DIR = '../data/random-split'
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent
+DATA_DIR = PROJECT_ROOT / "data"
+
+INPUT_FILE = DATA_DIR / "preprocessed-merged-traffic.csv"
+OUTPUT_DIR = DATA_DIR / "random-split"
+TRAIN_DIR = OUTPUT_DIR / "train"
+os.makedirs(TRAIN_DIR, exist_ok=True)
 
 # CSV 파일 로드 및 셔플
 df = pd.read_csv(INPUT_FILE)
@@ -22,14 +29,12 @@ for i in range(10):
     split_df = df.iloc[start:end]
 
     if i < 8:
-        split_type = 'train'
+        output_path = TRAIN_DIR / f"{i+1}_train.csv"
     elif i == 8:
-        split_type = 'val'
+        output_path = OUTPUT_DIR / "9_val.csv"
     else:
-        split_type = 'test'
+        output_path = OUTPUT_DIR / "10_test.csv"
 
-    output_filename = f'{i+1}_{split_type}.csv'
-    output_path = os.path.join(OUTPUT_DIR, output_filename)
     split_df.to_csv(output_path, index=False)
 
 print(f"[Complete] {total_rows} rows randomly split into 10 files under '{OUTPUT_DIR}'")
